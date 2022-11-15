@@ -9,6 +9,6 @@ Pre-requistes
 3. All the essential python libraries. 
 
 # Lets check out the code step by step
-Step 1: [Retreiving the fire data](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_1_Retreivng%20the%20fire%20data.py). The generated API, area of Interset, date, date range and path to store the data are the user input here. The dataset shall be downloaded from 3 different sensors.
+Step 1: [Retreiving the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_1_Retreivng%20the%20fire%20data.py) The generated API, area of Interset, date, date range and path to store the data are the user input here. The dataset shall be downloaded from 3 different sensors.
 
-Step2: 
+Step2: [Merging the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_2_merging%20of%20data.py) The fire ebvent data retreived from 3 sensors are merged here.
