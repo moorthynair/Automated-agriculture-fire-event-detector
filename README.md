@@ -8,7 +8,31 @@ Pre-requistes
 2. We shall be filtering the agriculture fire events using Landuse Landcover dataset. If you have one of your own , then well and good. or else download the MODIS LULC (MCD12Q1 V006) by access the website [clicking here](https://lpdaac.usgs.gov/products/mcd12q1v006/)
 3. All the essential python libraries. 
 
-# Lets check out the code step by step
-Step 1: [Retreiving the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_1_Retreivng%20the%20fire%20data.py) The generated API, area of Interset, date, date range and path to store the data are the user input here. The dataset shall be downloaded from 3 different sensors.
+## what are the user inputs?
+1. Generate API
+2. Area of Interest
+3. Date
+4. Date range (1 - 10 days)
+5. Path to store the data
 
-Step2: [Merging the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_2_merging%20of%20data.py) The fire ebvent data retreived from 3 sensors are merged here.
+## What are the user dataset to be provided?
+1. Shapefile of the area of interest
+2. Landuse Landcover raster data
+3. Other shapefile files such as forest boundary, industrial area boundary for extracting agriculture fire events from other events. See Step 4 below 
+
+# Lets check out the code step by step
+Step 1: [Retreiving the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_1_Retreivng%20the%20fire%20data.py) 
+
+Step2: [Merging the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_2_merging%20of%20data.py) 
+
+Step 3: [Convert point data to shapefile.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_3_Convert%20fire%20data%20point%20to%20shapefile.py) 
+
+Step 4: [Clip to Boundary.]https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_4_Clip%20to%20boundary.py Here the fire points are clipped to boundary shapefile as per the area of interest. Forest boundary shapefile is used to clip forest fire. 
+
+
+To further enhancing agriuclture fire event retrivals, one can use Landuse Landcover dataset. The processing of MODIS derived LULC is mentioned here
+
+
+Step 5: [Clip to LU-LC.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/LU_LC%20Retreivals.py) Further filtering is carried out using LULC dataset to retreive agriculture related fire events
+
+Step 6: [Saving the results/Multiple runs.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/LU_LC%20Retreivals.py) 
