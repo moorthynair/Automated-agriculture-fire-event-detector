@@ -38,4 +38,4 @@ Step 6: [Saving the results/Multiple runs.](https://github.com/moorthynair/Autom
 
 ## Okay Now try running the code all together. Access to [all in one code.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/All%20in%20one%20code.py)
 
-[Have a look at the final informations/folders that shall be generated in the path provided by the user after running the program](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Final%20Path.png)
+Have a look at the final informations/folders that shall be generated in the path provided by the user after running the program [Click here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Final%20Path.png)
