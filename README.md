@@ -1,7 +1,7 @@
 # Automated-Agriculture-fire-event-detector
 I managed to develop set of codes that can download and process agriculture fire events for any area of interest. Since NASA FIRMS provides data on near real time basis, one can run the code multiple times in a day. Lets check out the code step by step
 
-## Pre-requistes
+## Pre-requisites
 1. Generate a API from NASA FIRMS that lets you download near real time and past (upto 10 days) fire event dataset. [Click here](https://firms.modaps.eosdis.nasa.gov/api/area/) to access website to generate one
 ![image](https://user-images.githubusercontent.com/83420459/201974345-2780ca02-5577-4e28-aea3-4e09582b02bb.png)
 
@@ -17,7 +17,7 @@ I managed to develop set of codes that can download and process agriculture fire
 
 ## What are the user dataset to be provided?
 1. Shapefile of the area of interest
-2. Landuse Landcover raster data
+2. Landuse Landcover raster data (Store it in a folder named 'LU_LC_Raster' in the path input by the user) 
 3. Other shapefile files such as forest boundary, industrial area boundary for extracting agriculture fire events from other events. See Step 4 below 
 
 # Lets check out the code step by step
@@ -37,3 +37,5 @@ Step 6: [Saving the results/Multiple runs.](https://github.com/moorthynair/Autom
 
 
 ## Okay Now try running the code all together. Access to [all in one code.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/All%20in%20one%20code.py)
+
+## These are the informations/folders that shall be generated in the path provided by the user after running the program
