@@ -34,9 +34,9 @@ To further enhancing agriuclture fire event retrivals, one can use Landuse Landc
 Step 5: [Fine tunning using LU-LC dataset.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_5_Fine%20tunning%20by%20assigning%20land%20class.py)
 
 Step 6: [Saving the results/Multiple runs.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_6_Save%20the%20results.py)
+<br />
 
-
-Okay Now try running the code all together. Access to [all in one code.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/All%20in%20one%20code.py)
+### Okay Now try running the code all together. Access to [all in one code.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/All%20in%20one%20code.py)
 
 Have a look at the final informations/folders that shall be generated in the path provided by the user after running the program [Click here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Final%20Path.png)
 
