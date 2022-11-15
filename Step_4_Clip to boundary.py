@@ -22,6 +22,7 @@ import time
 import sys
 import warnings
 import shapely
+import matplotlib.pyplot as plt
 from shapely.errors import ShapelyDeprecationWarning
 warnings.filterwarnings("ignore", category=ShapelyDeprecationWarning) 
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -43,7 +44,9 @@ non_forest_fires = gpd.overlay(fire_points, forest_boundary, how='difference')
 non_forest_fires_bihar = gpd.overlay(non_forest_fires,Panchayat_boundary,how='intersection')
 
 ##Let us now plot the non forest fires
-non_forest_fires_bihar.plot(facecolor = 'red', edgecolor = 'black', markersize=20)
+fig, ax1 =plt.subplots()
+non_forest_fires_bihar.plot(facecolor = 'red', edgecolor = 'black', markersize=20, ax=ax1)
+Panchayat_boundary.plot(facecolor ='None', edgecolor = 'black', ax=ax1) 
 
 ##check for duplicates and removal of same
 duplicate_list = non_forest_fires_bihar[['longitude','latitude']].duplicated().tolist()
