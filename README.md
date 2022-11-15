@@ -1,7 +1,7 @@
 # Automated-Agriculture-fire-event-detector
 I managed to develop set of codes that can download and process agriculture fire events for any area of interest. Since NASA FIRMS provides data on near real time basis, one can run the code multiple times in a day. Lets check out the code step by step
 
-Pre-requistes
+## Pre-requistes
 1. Generate a API from NASA FIRMS that lets you download near real time and past (upto 10 days) fire event dataset. [Click here](https://firms.modaps.eosdis.nasa.gov/api/area/) to access website to generate one
 ![image](https://user-images.githubusercontent.com/83420459/201974345-2780ca02-5577-4e28-aea3-4e09582b02bb.png)
 
