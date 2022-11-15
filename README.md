@@ -17,7 +17,7 @@ I managed to develop set of codes that can download and process agriculture fire
 
 ## What are the user dataset to be provided?
 1. Shapefile of the area of interest
-2. Landuse Landcover raster data (Store it in a folder named 'LU_LC_Raster' in the path input by the user) 
+2. Landuse Landcover dataset (Store it in a folder named 'LU_LC_Raster' in the path input by the user) 
 3. Other shapefile files such as forest boundary, industrial area boundary for extracting agriculture fire events from other events. See Step 4 below 
 
 # Lets check out the code step by step
