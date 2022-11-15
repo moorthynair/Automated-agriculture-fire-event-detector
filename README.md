@@ -27,12 +27,15 @@ Step2: [Merging the fire data.](https://github.com/moorthynair/Automated-Agricul
 
 Step 3: [Convert point data to shapefile.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_3_Convert%20fire%20data%20point%20to%20shapefile.py) 
 
-Step 4: [Clip to Boundary.]https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_4_Clip%20to%20boundary.py Here the fire points are clipped to boundary shapefile as per the area of interest. Forest boundary shapefile is used to clip forest fire. 
+Step 4: [Clip to Boundary.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_4_Clip%20to%20boundary.py) Here the fire points are clipped to boundary shapefile as per the area of interest. Forest boundary shapefile is used to clip forest fire. 
 
 
-To further enhancing agriuclture fire event retrivals, one can use Landuse Landcover dataset. The processing of MODIS derived LULC is mentioned here
+To further enhancing agriuclture fire event retrivals, one can use Landuse Landcover dataset. [The processing of MODIS derived LULC is mentioned here.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/LU_LC%20Retreivals.py)
 
 
-Step 5: [Clip to LU-LC.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/LU_LC%20Retreivals.py) Further filtering is carried out using LULC dataset to retreive agriculture related fire events
+Step 5: [Clip to LU-LC.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_5_Fine%20tunning%20by%20assigning%20land%20class.py)Further filtering is carried out using LULC dataset to retreive agriculture related fire events
 
-Step 6: [Saving the results/Multiple runs.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/LU_LC%20Retreivals.py) 
+Step 6: [Saving the results/Multiple runs.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_6_Save%20the%20results.py)
+
+
+## Okay Now try running the code all together. Access the [all in one code.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/All%20in%20one%20code.py)
