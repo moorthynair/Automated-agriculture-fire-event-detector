@@ -92,6 +92,7 @@ for i in sensors.keys():
     data_integrated = pd.concat([data_integrated,data],axis=0)
 
 data_integrated.index = np.arange(0,data_integrated.shape[0])
+data_integrated['confidence'] = data_integrated['confidence'].astype('object')
 
 ## Let's break the code if no fire was detected
 if data_integrated.shape[0]==0:    
