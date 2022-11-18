@@ -136,8 +136,8 @@ non_forest_fires_bihar = gpd.overlay(non_forest_fires,Panchayat_boundary,how='in
 
 ##Let us now plot the non forest fires
 fig, ax1 =plt.subplots()
+Panchayat_boundary.plot(facecolor ='None', edgecolor = 'black', ax=ax1, linewidth=0.1) 
 non_forest_fires_bihar.plot(facecolor = 'red', edgecolor = 'black', markersize=20, ax=ax1)
-Panchayat_boundary.plot(facecolor ='None', edgecolor = 'black', ax=ax1) 
 
 ##check for duplicates and removal of same
 duplicate_list = non_forest_fires_bihar[['longitude','latitude']].duplicated().tolist()
