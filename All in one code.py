@@ -105,7 +105,8 @@ if data_integrated.shape[0]==0:
 fire_points = gpd.GeoDataFrame(data_integrated, geometry = gpd.points_from_xy(data_integrated['longitude'],data_integrated['latitude']))
 
 ##Let us visualise it
-fire_points.plot(facecolor = 'red', edgecolor = 'black', markersize=20)
+ax1= plt.gca()
+fire_points.plot(facecolor = 'green', edgecolor = 'black', markersize=20,ax=ax1)
 
 ##Let us save the shapefile
 new_path = os.path.join(path,'Shapefiles')
