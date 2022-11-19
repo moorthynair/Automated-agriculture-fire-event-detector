@@ -6,7 +6,7 @@ I managed to develop set of codes that can download and process agriculture fire
 ![image](https://user-images.githubusercontent.com/83420459/201974345-2780ca02-5577-4e28-aea3-4e09582b02bb.png)
 
 2. We shall be filtering the agriculture fire events using Landuse Landcover dataset. If you have one of your own , well and good or else download the MODIS LULC (MCD12Q1 V006) by access the website [clicking here](https://lpdaac.usgs.gov/products/mcd12q1v006/)
-3. All the essential python libraries mentioned [here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Essential%20Libraries.PNG)
+3. All the essential python libraries mentioned [here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/requirement.txt)
 
 ## what are the user inputs?
 1. Generate API
