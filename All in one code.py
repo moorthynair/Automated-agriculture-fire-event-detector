@@ -135,6 +135,10 @@ forest_boundary.to_crs('EPSG:4326', inplace=True)
 non_forest_fires = gpd.overlay(fire_points, forest_boundary, how='difference')
 non_forest_fires_bihar = gpd.overlay(non_forest_fires,Panchayat_boundary,how='intersection')
 
+## Exist if 'Non Forest Fire exists'
+if non_forest_fires_bihar.shape[0]==0:    
+    sys.exit('\n No Non forest fires were observed on {}'.format(date))
+    
 ##Let us now plot the non forest fires
 fig, ax1 =plt.subplots()
 Panchayat_boundary.plot(facecolor ='None', edgecolor = 'black', ax=ax1, linewidth=0.1) 
