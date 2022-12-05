@@ -233,6 +233,14 @@ if os.path.exists(new_path):
         fires['acq_time'] = fires['acq_time'].astype('int64')
         fires = existing_data.merge(fires, how= 'outer', indicator=True)
         new_fires = fires.loc[fires['_merge']=='right_only', ].drop(columns = ['_merge'])
+        
+    elif (len(existing_data['instrument'].unique())==1) and (existing_data['instrument'].unique()[0] == 'MODIS'):
+        existing_data['confidence'] = existing_data['confidence'].astype('object')
+        fires['Landuse_type'] = fires['Landuse_type'].astype('int64')
+        existing_data['acq_time'] = existing_data['acq_time'].astype('object')
+        fires = existing_data.merge(fires, how= 'outer', indicator=True)
+        new_fires = fires.loc[fires['_merge']=='right_only', ].drop(columns = ['_merge'])
+        
     else:
         fires = existing_data.merge(fires, how= 'outer', indicator=True)
         new_fires = fires.loc[fires['_merge']=='right_only', ].drop(columns = ['_merge'])
