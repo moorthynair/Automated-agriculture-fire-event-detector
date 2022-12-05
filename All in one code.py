@@ -227,9 +227,16 @@ new_path = new_path + '/'+str(date)+'.xlsx'
 ## If you want to run the program multiple times a day
 if os.path.exists(new_path):
     existing_data = pd.read_excel(new_path)
-    fires = existing_data.merge(fires, how= 'outer', indicator=True)
-    new_fires = fires.loc[fires['_merge']=='right_only', ].drop(columns = ['_merge'])
-    
+    if (len(fires['instrument'].unique())==1) and (fires['instrument'].unique()[0] == 'MODIS'):
+        fires['confidence'] = fires['confidence'].astype('int64')
+        fires['Landuse_type'] = fires['Landuse_type'].astype('int64')
+        fires['acq_time'] = fires['acq_time'].astype('int64')
+        fires = existing_data.merge(fires, how= 'outer', indicator=True)
+        new_fires = fires.loc[fires['_merge']=='right_only', ].drop(columns = ['_merge'])
+    else:
+        fires = existing_data.merge(fires, how= 'outer', indicator=True)
+        new_fires = fires.loc[fires['_merge']=='right_only', ].drop(columns = ['_merge'])
+        
     ##Let us save the new fires identified over the mutiple run
     folder = 'Multiple Run'
     new_path = os.path.join(path,folder)
