@@ -160,14 +160,15 @@ if len(set(duplicate_list))>1:
 ## Convert the retreived LULC from HDF to tiff format
 
 landuse_landcover = 'C:/Users/HP/Desktop/Fire_analysis/Fires_Kharif_2022/LU_LC_Raster/MCD12Q1.A2020001.h25v06.006.2021360043257.hdf'
+rastername = 'MCD12Q1_2021360043257.tiff'
+raster_path = os.path.join(path,'LU_LC_Raster',rastername)
 
-if not os.path.exists(landuse_landcover):
+if not os.path.exists(raster_path):    
     hdflayer = gdal.Open(landuse_landcover, gdal.GA_ReadOnly)
     ## I choose Land Cover Type 1: Annual International Geosphere-Biosphere Programme (IGBP) classification 
     rlayer = gdal.Open(hdflayer.GetSubDatasets()[0][0], gdal.GA_ReadOnly)
 
-    os.chdir('C:/Users/HP/Desktop/Fire_analysis/Fires_Kharif_2022/LU_LC_Raster')
-    rastername = 'MCD12Q1_2021360043257.tiff'
+    os.chdir('C:/Users/HP/Desktop/Fire_analysis/Fires_Kharif_2022/LU_LC_Raster')    
     gdal.Warp(rastername,rlayer, dstSRS='EPSG:4326')
 
 ###################### Step 5: Fine tunning by assigning land class ###########
