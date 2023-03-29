@@ -27,7 +27,7 @@ Step2: [Merging the fire data.](https://github.com/moorthynair/Automated-Agricul
 
 Step 3: [Convert point data to shapefile.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_3_Convert%20fire%20data%20point%20to%20shapefile.py) 
 
-Step 4: [Clip to boundary shaepfile.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_4_Clip%20to%20boundary.py) 
+Step 4: [Clip to boundary shapefile.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_4_Clip%20to%20boundary.py) 
 
 To further enhancing agriuclture fire event retrivals, one can use Landuse Landcover dataset. [The processing of MODIS derived LULC is mentioned here.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/LU_LC%20Retreivals.py) one can either continue or skip step 5 and move to step 6. 
 
