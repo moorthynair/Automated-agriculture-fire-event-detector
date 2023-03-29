@@ -9,11 +9,11 @@ I managed to develop set of codes that can download and process agriculture fire
 3. All the essential python libraries mentioned [here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/requirement.txt)
 
 ## what are the user inputs?
-1. Generate API
-2. Area of Interest
+1. Generate API (See pre-requisites step 1)
+2. Area of Interest (provide the lat/lon of the geometry bounding box)
 3. Date
 4. Date range (1 - 10 days)
-5. Path to store the data
+5. Path to store the analysed data
 
 ## What are the user dataset to be provided?
 1. Shapefile of the area of interest
