@@ -8,7 +8,6 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 
 ## Pre-requisites
 **Req-1:** Generate a API from NASA FIRMS that lets you download NRT and past (upto 10 days) fire event dataset. [Click here](https://firms.modaps.eosdis.nasa.gov/api/area/) to access website and scroll down to generate one
-![image](https://user-images.githubusercontent.com/83420459/201974345-2780ca02-5577-4e28-aea3-4e09582b02bb.png)
 
 **Req-2:** We shall be filtering the agriculture fire events using Landuse Landcover dataset. If you have one of your own , well and good or else download the MODIS LULC (MCD12Q1 V006) by access the website [clicking here](https://lpdaac.usgs.gov/products/mcd12q1v006/)
 
