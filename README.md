@@ -13,7 +13,7 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 
 **Req-3:** All the essential python libraries for simulating the script mentioned [here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/requirement.txt)
 
-## what are the user inputs required to downalod fire data from NASA platform?
+## what are the user inputs required to download fire data from NASA platform?
 1. Generated API (Refer pre-requisites Req-1)
 2. Area of Interest for which the fire point has to be downloaded (provide the lat/lon of the geometry bounding box: maxy,maxx,minx,miny)
 3. Date for which the fire event has to be downloaded
