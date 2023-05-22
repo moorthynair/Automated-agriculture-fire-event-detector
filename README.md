@@ -25,7 +25,17 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 2. Landuse Landcover dataset (Store it in a folder named 'LU_LC_Raster' in the path input by the user) 
 3. Other shapefile files such as forest boundary, industrial area boundary for extracting agriculture fire events from other events. See Step 4 below 
 
-# Lets check out the code step by step
+# Check out the code step by step
+
+| Step no | Description | Script link |
+| ------- | ----------- | ----------- |
+| Step 1  | Retreiving the fire data from the satellites. The information pertaining to fire such as geolocations, retrieval date/time, etc are downloaded from SUOMI (NOAA & NPP) and MODIS (TERRA) satellites in excel format |  [Script](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_1_Retreivng%20the%20fire%20data.py) |
+| Step 2  | Merging the fire data retreived from the satellites. | [Script](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_2_merging%20of%20data.py) |
+| Step 3  | Convert fire point data to shapefile format | [Script](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_3_Convert%20fire%20data%20point%20to%20shapefile.py)|
+| Step 4  | Clip the fire points that are within the area of interest  | [Script](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_4_Clip%20to%20boundary.py)|
+| Step 5  | Filter the fire points that are falling within the agriculture landuse. To further enhancing agriuclture fire event retrivals, one can use Landuse Landcover dataset to filter agriculture fire points from non-agriculture fire points.  one can either continue to step 5 or skip to step 6. It is suggested to perform this step as it removes all non-agriculutre fire points from the entire dataset. [Run this MODIS LULC raster file processing step once](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/LU_LC%20Retreivals.py) before proceeding to the script | [Script](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_5_Fine%20tunning%20by%20assigning%20land%20class.py)|
+| Step 6  | Saving the results/Performing Multiple runs | [Script](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_6_Save%20the%20results.py)|
+
 Step 1: [Retreiving the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_1_Retreivng%20the%20fire%20data.py) 
 
 Step2: [Merging the fire data.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Step_2_merging%20of%20data.py) 
@@ -43,7 +53,7 @@ Step 6: [Saving the results/Multiple runs.](https://github.com/moorthynair/Autom
 ------
 
 ### Okay Now try running the code all together 
-Access to [all in one code.](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/All%20in%20one%20code.py)
+Access to **[all in one code.]**(https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/All%20in%20one%20code.py)
 
 Have a look at the final informations/folders that shall be generated in the path provided by the user after running the program [Click here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/Final%20Path.png)
 
