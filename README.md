@@ -1,7 +1,7 @@
 # Automated-Agriculture-fire-event-detector
 These set of codes can automatically download and process agriculture fire events occurred over an area of interest with a single click. The base information/data for analysis are retreived from the National Aeronautics and Space Administration (NASA) owned satellites. Since NASA provides data on Near Real Time (NRT) basis (Lag of 1-3 hours of the satellite overpass), one can run the code multiple times a day to track the latest fire events. 
 
-### The purpose
+## The purpose
 Burning crop residue is generally discouraged because of the harm it does to soil biodiversity and public health owing to air pollution. The agriculture officials are mandated to monitor such illegal activity in order to take appropriate action. Automating this exercise using satellite-retrieved data will optimise the on-ground judgements and actions because performing this activity manually in an agricultural state is difficult and has a high risk of missing out on specific fire activities.
  
 **Note:** We are here only retreiving NRT and past data upto 10 days to facilitate officals with immediate information for corrective actions. For retrospective data, one must access the archieve dataset provided in the NASA FIRMS website.
@@ -25,7 +25,7 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 2. Landuse Landcover dataset (Refer pre-requisites Req-2. Save it in a folder named 'LU_LC_Raster' in the path input by the user) 
 3. Other shapefile files such as forest boundary, industrial area boundary for filtering agriculture fire events from other fire events. See Step 5 below 
 
-### Check out the code step by step
+## Check out the code step by step
 
 | Step no | Description | Script link |
 | ------- | ----------- | ----------- |
