@@ -31,7 +31,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 start = time.time()
 
 url = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv/'
-Map_key = 'e8b17bf4e91dce8468083ba236932eaf' ##Key is confidential
+Map_key = 'e8********91d########a236932eaf' ##Key is confidential
 
 ##Define the area for monitoring, I Choose Bihar as my study area
 West = '82.54688'
