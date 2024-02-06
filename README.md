@@ -11,17 +11,17 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 
 **Req-2:** We shall be filtering the agriculture fire events using Landuse Landcover dataset. If you have one of your own , well and good or else download the MODIS LULC (MCD12Q1 V006) by access the website [clicking here](https://lpdaac.usgs.gov/products/mcd12q1v006/)
 
-**Req-3:** All the essential python libraries for simulating the script mentioned ['requirements.txt`](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/requirement.txt)
+**Req-3:** All the essential python libraries for simulating the script mentioned [`requirements.txt`](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/requirement.txt)
 
 ## what are the user inputs required to download fire data from NASA platform?
 1. Generated API (Refer pre-requisites Req-1)
 2. Area of Interest for which the fire point has to be downloaded (provide the lat/lon of the geometry bounding box: North:maxy,East:maxx,West:minx,South:miny)
-3. Date for which the fire event has to be downloaded
+3. Date for which the fire events to be downloaded
 4. Date range (1 - 10 days)
 5. Path to store the analysed data
 
 ## What are the user dataset to be provided for performing the analysis?
-1. Shapefile of the area of interest
+1. Shapefile of the area of interest. Explore more about India mass land shapefiles at [Survey of India](https://onlinemaps.surveyofindia.gov.in/Digital_Product_Show.aspx)
 2. Landuse Landcover dataset (Refer pre-requisites Req-2. Save it in a folder named 'LU_LC_Raster' in the path input by the user) 
 3. Other shapefile files such as forest boundary, industrial area boundary for filtering agriculture fire events from other fire events. See Step 5 below 
 
