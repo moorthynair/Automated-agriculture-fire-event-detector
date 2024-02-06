@@ -11,7 +11,7 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 
 **Req-2:** We shall be filtering the agriculture fire events using Landuse Landcover dataset. If you have one of your own , well and good or else download the MODIS LULC (MCD12Q1 V006) by access the website [clicking here](https://lpdaac.usgs.gov/products/mcd12q1v006/)
 
-**Req-3:** All the essential python libraries for simulating the script mentioned [here](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/requirement.txt)
+**Req-3:** All the essential python libraries for simulating the script mentioned ['requirements.txt`](https://github.com/moorthynair/Automated-Agriculture-fire-event-detector/blob/main/requirement.txt)
 
 ## what are the user inputs required to download fire data from NASA platform?
 1. Generated API (Refer pre-requisites Req-1)
