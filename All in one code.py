@@ -33,7 +33,14 @@ start = time.time()
 url = 'https://firms.modaps.eosdis.nasa.gov/api/area/csv/'
 Map_key = 'e8********91d########a236932eaf' ##Key is confidential
 
-##Define the area for monitoring, I Choose Bihar as my study area
+##Provide the village shapefile path. This can be downloaded from 'https://onlinemaps.surveyofindia.gov.in/Digital_Product_Show.aspx'
+village_boundary_shape = 'C:/Users/HP/Desktop/data/IND_adm/PF AND PANCHYAT BOUNDARY/PANCHAYAT_BOUND_WITH_FOREST_ATTRIBUTES.shp'
+
+##Provide forest boundary shape path (optional)
+forest_boundary_shape = 'C:/Users/HP/Desktop/data/IND_adm/PF AND PANCHYAT BOUNDARY/PF_BOUNDARY_2019.shp'
+
+##Define the area for monitoring ie., bounding-box, Here I Choose Bihar as my study area. The bounding-box is same as 'village_boundary_shape'
+##As an alternate explore http://bboxfinder.com/ to get the bounding-box coordinates of the area of interest
 West = '82.54688'
 South ='22.96283'
 East = '89.29688'
@@ -46,8 +53,12 @@ date_range = '1'
 #date_modified = dt.strptime(date, '%Y-%m-%d') - timedelta (days= int(date_range))
 #date = date_modified.strftime('%Y-%m-%d')
 
-## Define path to store your data
+## Define path to store your data. Make sure this path exists
 path = 'C:/Users/HP/Desktop/Fire_analysis/Fires_Kharif_2022'
+
+##Provide path to the landuse_landcover hdf file downlaoded from 'https://modis.gsfc.nasa.gov/data/dataprod/mod12.php'
+## Make sure to save the LULC hdf file in the 'LU_LC_Raster' folder within the 'path' provided above
+landuse_landcover = 'C:/Users/HP/Desktop/Fire_analysis/Fires_Kharif_2022/LU_LC_Raster/MCD12Q1.A2020001.h25v06.006.2021360043257.hdf'
 
 ##Analysis begins.......
 
@@ -124,33 +135,38 @@ fire_points.to_file(new_path+'/'+str(date)+'.shp', driver ='ESRI Shapefile', crs
 ##Input firepoints
 fire_points = gpd.read_file(new_path+'/'+str(date)+'.shp')
 
-##Input Panchayat Boundary
-Panchayat_boundary = gpd.read_file('C:/Users/HP/Desktop/data/IND_adm/PF AND PANCHYAT BOUNDARY/PANCHAYAT_BOUND_WITH_FOREST_ATTRIBUTES.shp')
+##Read Village Boundary shape
+village_boundary = gpd.read_file(village_boundary_shape)
+village_boundary.to_crs('EPSG:4326', inplace=True)
 
-##input Forest Boundary
-forest_boundary = gpd.read_file('C:/Users/HP/Desktop/data/IND_adm/PF AND PANCHYAT BOUNDARY/PF_BOUNDARY_2019.shp')
-forest_boundary.to_crs('EPSG:4326', inplace=True)
-
-##Clip out the non forest fires initially
-non_forest_fires = gpd.overlay(fire_points, forest_boundary, how='difference')
-non_forest_fires_bihar = gpd.overlay(non_forest_fires,Panchayat_boundary,how='intersection')
+##Read Forest Boundary (if provided)
+try:
+    forest_boundary_shape
+    forest_boundary = gpd.read_file(forest_boundary_shape)
+    forest_boundary.to_crs('EPSG:4326', inplace=True)
+    
+    ##Clip out the non forest fires initially
+    non_forest_fires = gpd.overlay(fire_points, forest_boundary, how='difference')
+    non_forest_fires_aoi = gpd.overlay(non_forest_fires,village_boundary,how='intersection')
+except NameError:
+    non_forest_fires_aoi = gpd.overlay(fire_points,village_boundary,how='intersection')
 
 ## Exist if 'Non Forest Fire doesn't exists'
-if non_forest_fires_bihar.shape[0]==0:    
+if non_forest_fires_aoi.shape[0]==0:    
     sys.exit('\n No Non forest fires were observed on {}'.format(date))
     
 ##Let us now plot the non forest fires
 fig, ax1 =plt.subplots()
-Panchayat_boundary.plot(facecolor ='None', edgecolor = 'black', ax=ax1, linewidth=0.1) 
-non_forest_fires_bihar.plot(facecolor = 'red', edgecolor = 'black', markersize=20, ax=ax1)
+village_boundary.plot(facecolor ='None', edgecolor = 'black', ax=ax1, linewidth=0.1) 
+non_forest_fires_aoi.plot(facecolor = 'red', edgecolor = 'black', markersize=20, ax=ax1)
 
 ##check for duplicates and removal of same
-duplicate_list = non_forest_fires_bihar[['longitude','latitude']].duplicated().tolist()
+duplicate_list = non_forest_fires_aoi[['longitude','latitude']].duplicated().tolist()
 
 if len(set(duplicate_list))>1:    
     indexes = np.where(duplicate_list)[0]
-    non_forest_fires_bihar.drop(index=indexes, inplace=True)
-    non_forest_fires_bihar.reset_index(inplace=True)
+    non_forest_fires_aoi.drop(index=indexes, inplace=True)
+    non_forest_fires_aoi.reset_index(inplace=True)
 
 ##You can stop here if you dont need further fine tuning
 
@@ -159,7 +175,6 @@ if len(set(duplicate_list))>1:
 ## Before Initiating set 5, let us retrive the raster Landuse Landcover file and do the pre-requistes
 ## Convert the retreived LULC from HDF to tiff format
 
-landuse_landcover = 'C:/Users/HP/Desktop/Fire_analysis/Fires_Kharif_2022/LU_LC_Raster/MCD12Q1.A2020001.h25v06.006.2021360043257.hdf'
 rastername = 'MCD12Q1_2021360043257.tiff'
 raster_path = os.path.join(path,'LU_LC_Raster',rastername)
 
@@ -177,10 +192,10 @@ os.chdir('C:/Users/HP/Desktop/Fire_analysis/Fires_Kharif_2022/LU_LC_Raster')
 LU_LC = rio.open('MCD12Q1_2021360043257.tiff')
 LU_LC_array = LU_LC.read(1)
 
-for index, i in non_forest_fires_bihar.iterrows():
+for index, i in non_forest_fires_aoi.iterrows():
     row_index, col_index = LU_LC.index(i['longitude'], i['latitude'])
-    non_forest_fires_bihar.loc[index,'Landuse_type'] = LU_LC_array[row_index, col_index]
-    print('{} out of {} completed'.format(index+1,len(non_forest_fires_bihar.index)))
+    non_forest_fires_aoi.loc[index,'Landuse_type'] = LU_LC_array[row_index, col_index]
+    print('{} out of {} completed'.format(index+1,len(non_forest_fires_aoi.index)))
     
 ## Let us know what the landuse type represents?
 #1  -   Evergreen Needleleaf Forests: dominated by evergreen conifer trees (canopy >2m). Tree cover >60%.
@@ -203,11 +218,11 @@ for index, i in non_forest_fires_bihar.iterrows():
 
 
 ## Let us now filter based on landuse type
-non_forest_fires_bihar = non_forest_fires_bihar.loc[non_forest_fires_bihar['Landuse_type']==12, ]
-non_forest_fires_bihar = non_forest_fires_bihar.sort_values(by ='acq_date')
+non_forest_fires_aoi = non_forest_fires_aoi.loc[non_forest_fires_aoi['Landuse_type']==12, ]
+non_forest_fires_aoi = non_forest_fires_aoi.sort_values(by ='acq_date')
 
 ## Let's break the code if no fire was detected
-if non_forest_fires_bihar.shape[0]==0:    
+if non_forest_fires_aoi.shape[0]==0:    
     sys.exit('\n No fires were observed on {}'.format(date))
     
 ##############################End of step 5 ##################################
@@ -215,7 +230,7 @@ if non_forest_fires_bihar.shape[0]==0:
 
 ###################### Step 6: Save the results #############################
 cols_selected = ['latitude', 'longitude', 'acq_date','acq_time', 'instrument', 'confidence', 'frp', 'daynight', 'GPNAME_1', 'BLK_NAME', 'DIST_NAM_1', 'Landuse_type']
-fires = non_forest_fires_bihar.loc[:,non_forest_fires_bihar.columns.isin(cols_selected)]
+fires = non_forest_fires_aoi.loc[:,non_forest_fires_aoi.columns.isin(cols_selected)]
 
 folder = 'Analysed Results'
 new_path = os.path.join(path,folder)
