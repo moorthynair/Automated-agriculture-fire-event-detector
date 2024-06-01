@@ -52,7 +52,6 @@ def main():
                                           Firms_url,API_key,path,date,date_range)
     
     ## Step-2
-    print('\n')
     dt = Step_2_merging_of_data.step_2(path, date)
     
     ## Let's break the code if no fire was detected
@@ -60,11 +59,9 @@ def main():
         sys.exit('\n No fires were observed on {}'.format(date))
     
     ## Step-3
-    print('\n')
     Step_3_convert_fire_data_point_to_shapefile.step_3(dt, path, date)
     
     ## Step-4
-    print('\n')
     dt_fire_point = Step_4_clip_to_boundary.step_4(path, date,
                                                    village_shape_path = village_shape)
     
@@ -81,7 +78,6 @@ def main():
     dt_fire_point = pd.concat([viirs_dt, modis_dt], axis=0).reset_index(drop = True)
     
     ## Step-5
-    print('\n')
     dt_agri_fire = Step_5_fine_tunning_by_assigning_land_class.step_5(repository_path = repo_path, non_forest_fires_aoi = dt_fire_point)
     ## Let's break the code if no fire was detected
     print('\n')
@@ -92,7 +88,6 @@ def main():
     print('-*-'*28)
         
     ## Step-6
-    print('\n')
     Step_6_save_the_results.step_6(dt_agri_fire,date, path, attributes = village_attributes)
     
     
