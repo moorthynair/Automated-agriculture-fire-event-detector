@@ -1,8 +1,0 @@
-Metadata-Version: 2.1
-Name: agrifire_packages
-Version: 1.0.0
-Summary: Contains useful package to run Automated agriculutre fire event detector model
-Home-page: https://github.com/moorthynair/Automated-Agriculture-fire-event-detector
-Author: Moorthy M Nair
-Author-email: moorthymnair@yahoo.in
-License-File: LICENSE
