@@ -33,7 +33,7 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 ```bash
   cd Automated-Agriculture-fire-event-detector
 ``` 
-5. Install the supporting libraries
+5. Install the dependencies
 ```bash
   pip install -r requirement.txt
   conda install gdal ## Run this only if the gdal installation fails
