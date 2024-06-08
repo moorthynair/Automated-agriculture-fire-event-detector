@@ -14,19 +14,18 @@ Burning crop residue is generally discouraged because of the harm it does to soi
 ## Step by step instruction to set up the repository
 Let's proceed, assuming 'Anoconda' is installed in the local machine. if not, user may perform simple google search to know how to setup one.
 1. Start by creating a new conda environment. I have provided 'fire_analysis' as the environment name. User may provide a preferred name.
+   <br/>`conda create -n fire_analysis python==3.10.1`
    
-   `conda create -n fire_analysis python==3.10.1`
 2. Activate the environment.
+   <br/>`conda activate fire_analysis`
    
-   `conda activate fire_analysis`
 3. Clone the github repository
+   <br/>`git clone https://github.com/moorthynair/Automated-Agriculture-fire-event-detector.git`
    
-   `git clone https://github.com/moorthynair/Automated-Agriculture-fire-event-detector.git`
 4. Navigate to the 'Automated-Agriculture-fire-event-detector' folder
+   <br/>`cd Automated-Agriculture-fire-event-detector`
    
-   `cd Automated-Agriculture-fire-event-detector`
 5. Install the supporting libraries to run the model
-   
-   `pip install -r path/to/requirement.txt`
-   `conda install gdal` ## Run this only if gdal installation fails
-   `$ pip install .`
+   <br/>`pip install -r path/to/requirement.txt`
+   <br/>`conda install gdal` -- Run this only if gdal installation fails
+   <br/>`$ pip install .`
