@@ -42,7 +42,7 @@ Burning crop residue is generally discouraged due to its detrimental effects on 
     
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your config.ini file
+To run this project, you will need to add the following environment variables to your config.ini file. Use any text editor to make changes
 
 * `path` - specify the path to Automated-Agriculture-fire-event-detector directory on the local machine
 
