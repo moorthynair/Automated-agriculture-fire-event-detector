@@ -96,6 +96,7 @@ Once users have specified all the environment variables in the config.ini file. 
 
 ```bash
   git fetch origin
+  git pull origin main
 ```
 
 
