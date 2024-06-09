@@ -88,7 +88,7 @@ def step_6(non_forest_fires_aoi, date, path, attributes):
     print('\n')
     print('-*-'*28)
     print('\n')  
-    print('\n total fires obsereved on {} as of now is {} '.format(date,fires.shape[0]))   
+    print('\n total fires observed on {} as of now is {} '.format(date,fires.shape[0]))    
     print('\n')
     print('-*-'*28)
     print('\n')  
