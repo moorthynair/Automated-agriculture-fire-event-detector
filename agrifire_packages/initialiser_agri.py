@@ -11,8 +11,8 @@ from datetime import datetime as dt
 def header():
     print("-*-" * 28)
     print()
-    print("Automated Agirculture fire detector".center(70))
-    print("Fetches Agriculture fire points from Satellite images".center(70))
+    print("Automated Agriculture Fire Detector".center(70))
+    print("Fetches agriculture fire points from satellite images".center(70))
     print()
     print(f"Date & Time of Run:     {dt.now().strftime('%d/%m/%Y %H:%M:%S')}")
     print("Contact:                morthymnair@yahoo.in")
