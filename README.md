@@ -37,14 +37,12 @@ Burning crop residue is generally discouraged due to its detrimental effects on 
 ```bash
   pip install -r requirement.txt
   conda install gdal ## Run this only if the gdal installation fails
-  $ pip install .
+  $ pip install -e .
 ``` 
     
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your config.ini file. Use any text editor to make changes
-
-* `path` - specify the path to Automated-Agriculture-fire-event-detector directory on the local machine
 
 * `aoi_boundary` - specify the path to the area of interest shapefile in .shp format.
 
