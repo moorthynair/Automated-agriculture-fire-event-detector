@@ -19,11 +19,11 @@ Burning crop residue is generally discouraged due to its detrimental effects on 
 
 1. Start by creating a new conda environment.
 ```bash
-  conda create -n fire_analysis python==3.10.1
+  conda create -n agri_fire python==3.10.1
 ```
 2. Activate the environment
  ```bash
-  conda activate fire_analysis
+  conda activate agri_fire
 ```   
 3. Clone the project
 ```bash
