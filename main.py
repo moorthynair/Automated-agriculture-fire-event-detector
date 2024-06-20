@@ -29,7 +29,6 @@ def main():
     config_file.read(config_path)
     
     ## user inputs
-    repo_path = config_file['repository']['path']
     API_key =  config_file['inputs']['API']
     village_shape = config_file['inputs']['aoi_boundary']
     village_attributes = config_file['inputs']['aoi_attributes']
@@ -78,7 +77,7 @@ def main():
     dt_fire_point = pd.concat([viirs_dt, modis_dt], axis=0).reset_index(drop = True)
     
     ## Step-5
-    dt_agri_fire = Step_5_fine_tunning_by_assigning_land_class.step_5(repository_path = repo_path, non_forest_fires_aoi = dt_fire_point)
+    dt_agri_fire = Step_5_fine_tunning_by_assigning_land_class.step_5(non_forest_fires_aoi = dt_fire_point)
     ## Let's break the code if no fire was detected
     print('\n')
     print('-*-'*28)

@@ -16,9 +16,9 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 ###################### Step 5: Fine tunning by assigning land class ###########
 
 
-def step_5(repository_path, non_forest_fires_aoi):
+def step_5(non_forest_fires_aoi):
     
-    new_path = os.path.join(repository_path, 'landuse_raster')
+    new_path = os.path.join('landuse_raster')
     raster_file = os.listdir(new_path)
     raster_path = os.path.join(new_path,raster_file[0])
     
