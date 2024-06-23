@@ -36,7 +36,6 @@ Burning crop residue is generally discouraged due to its detrimental effects on 
 5. Install the dependencies
 ```bash
   pip install -r requirement.txt
-  conda install gdal ## Run this only if the gdal installation fails
   pip install -e .
 ``` 
     
