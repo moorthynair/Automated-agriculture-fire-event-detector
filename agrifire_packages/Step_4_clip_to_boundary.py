@@ -23,6 +23,7 @@ def step_4(path,date,village_shape_path):
         ##Input firepoints
         new_path = os.path.join(path,'Shapefiles')
         fire_points = gpd.read_file(new_path+'/'+str(date)+'.shp') ##Define the path here
+        fire_points.to_crs('epsg:4326', inplace = True)
         
         ##Input Panchayat Boundary
         study_area = gpd.read_file(village_shape_path) ## read the shapefile
