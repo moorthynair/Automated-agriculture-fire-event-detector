@@ -25,6 +25,8 @@ def step_5(non_forest_fires_aoi):
     LU_LC = rio.open(raster_path)
     LU_LC_array = LU_LC.read(1)
     
+    non_forest_fires_aoi['Landuse_type'] = 0
+    
     with alive_bar(len(non_forest_fires_aoi),title = 'Extracting LU_LC information', bar ='blocks') as bar:
 
         for index, i in non_forest_fires_aoi.iterrows():
