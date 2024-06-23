@@ -6,6 +6,6 @@
 /.git
 /build
 /agrifire_packages.egg-info
-/.DS_Store
+.DS_Store
 /eg
 /agrifire
