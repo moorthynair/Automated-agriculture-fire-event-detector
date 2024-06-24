@@ -16,10 +16,12 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 def step_6(non_forest_fires_aoi, date, path, attributes):
     
-    cols_selected = ['latitude', 'longitude', 'acq_date','acq_time', 'instrument', 'confidence', 'frp', 'daynight', 'Landuse_type']
-    cols_selected.extend(attributes.split(','))
-    fires = non_forest_fires_aoi.loc[:,non_forest_fires_aoi.columns.isin(cols_selected)]
-    
+    if len(attributes)>0:
+        cols_selected = ['latitude', 'longitude', 'acq_date','acq_time', 'instrument', 'confidence', 'frp', 'daynight', 'Landuse_type']
+        cols_selected.extend(attributes.split(','))
+        fires = non_forest_fires_aoi.loc[:,non_forest_fires_aoi.columns.isin(cols_selected)]
+    else:
+        fires = non_forest_fires_aoi
     
     folder = 'Analysed Results'
     new_path = os.path.join(path,folder)
